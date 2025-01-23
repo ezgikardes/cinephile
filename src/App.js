@@ -1,5 +1,6 @@
-import NavBar from "./NavBar";
-import Main from "./Main";
+import { useState } from "react";
+import Main from "./layouts/Main";
+import NavBar from "./layouts/NavBar";
 
 const tempMovieData = [
   {
@@ -49,10 +50,11 @@ const tempWatchedData = [
 ];
 
 export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
   return (
     <>
-      <NavBar />
-      <Main tempMovieData={tempMovieData} tempWatchedData={tempWatchedData} />
+      <NavBar movies={movies} />
+      <Main tempWatchedData={tempWatchedData} movies={movies} />
     </>
   );
 }
