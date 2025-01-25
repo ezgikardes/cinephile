@@ -4,9 +4,10 @@ import NavBar from "./layouts/NavBar";
 import Logo from "./features/navbar/Logo";
 import Search from "./features/navbar/Search";
 import NumResults from "./features/navbar/NumResults";
-import ListBox from "./features/movie-list/ListBox";
-import WatchedBox from "./features/watched-movies/WatchedBox";
 import MovieList from "./features/movie-list/MovieList";
+import Box from "./components/Box";
+import WatchedSummary from "./features/watched-movies/WatchedSummary";
+import WatchedMovieList from "./features/watched-movies/WatchedMovieList";
 
 const tempMovieData = [
   {
@@ -57,6 +58,7 @@ const tempWatchedData = [
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
   return (
     <>
       <NavBar>
@@ -65,10 +67,13 @@ export default function App() {
         <NumResults movies={movies} />
       </NavBar>
       <Main>
-        <ListBox>
+        <Box>
           <MovieList movies={movies} />
-        </ListBox>
-        <WatchedBox tempWatchedData={tempWatchedData} />
+        </Box>
+        <Box>
+          <WatchedSummary watched={watched} />
+          <WatchedMovieList watched={watched} />
+        </Box>
       </Main>
     </>
   );
