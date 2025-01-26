@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StarRating from "./StarRating";
+import StarRating from "./common/StarRating";
 
 export default function Test() {
   const [movieRating, setMovieRating] = useState(0);

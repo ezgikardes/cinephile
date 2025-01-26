@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Main from "./layouts/Main";
 import NavBar from "./layouts/NavBar";
-import Logo from "./features/navbar/Logo";
-import Search from "./features/navbar/Search";
-import NumResults from "./features/navbar/NumResults";
+import Logo from "./components/navbar/Logo";
+import Search from "./components/navbar/Search";
+import NumResults from "./components/navbar/NumResults";
 import MovieList from "./features/movie-list/MovieList";
-import Box from "./components/Box";
+import Box from "./components/common/Box";
 import WatchedSummary from "./features/watched-movies/WatchedSummary";
 import WatchedMovieList from "./features/watched-movies/WatchedMovieList";
 
