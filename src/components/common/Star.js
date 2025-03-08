@@ -45,10 +45,3 @@ export default function Star({
     </span>
   );
 }
-
-/*
-
-EMPTY STAR
-
-
-*/
