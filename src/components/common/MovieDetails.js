@@ -4,7 +4,11 @@ import Loader from "./Loader";
 
 const KEY = "9f10212e";
 
-export default function MovieDetails({ selectedId, onCloseMovie }) {
+export default function MovieDetails({
+  selectedId,
+  onCloseMovie,
+  onAddWatched,
+}) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +25,18 @@ export default function MovieDetails({ selectedId, onCloseMovie }) {
     Genre: genre,
   } = movie;
 
-  console.log(title, year);
+  function handleAdd() {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      poster,
+      imdbRating: Number(imdbRating),
+      runtime: runtime.split(" ").at(0),
+    };
+    onAddWatched(newWatchedMovie);
+    onCloseMovie();
+  }
 
   useEffect(
     function () {
@@ -67,6 +82,9 @@ export default function MovieDetails({ selectedId, onCloseMovie }) {
             <div className="rating">
               <StarRating maxRating={10} size={24} />
             </div>
+            <button className="btn-add" onClick={handleAdd}>
+              + Add to list
+            </button>
             <p>
               <em>{plot}</em>
             </p>
