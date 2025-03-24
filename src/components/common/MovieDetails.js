@@ -18,7 +18,7 @@ export default function MovieDetails({
 
   useEffect(
     function () {
-      if (userRating) countRef.current = countRef.current + 1;
+      if (userRating) countRef.current = countRef.current++;
     },
     [userRating]
   );
